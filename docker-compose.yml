@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file: ./Backend/.env
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+    volumes:
+      - ./Backend:/app
+      - /app/node_modules
+    networks:
+      - edureach-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:5000
+    networks:
+      - edureach-network
+
+networks:
+  edureach-network:
+    driver: bridge

@@ -1,0 +1,20 @@
+{
+  "database": "edureach_db",
+  "collection": "knowledge_docs",
+  "indexName": "edureach_vector_index",
+  "indexDefinition": {
+    "fields": [
+      {
+        "type": "vector",
+        "path": "embedding",
+        "similarity": "cosine",
+        "dimensions": 768
+      },
+      {
+        "type": "filter",
+        "path": "text"
+      }
+    ]
+  },
+  "instructions": "This vector index must be created manually in MongoDB Atlas:\n\n1. Go to MongoDB Atlas > Your Cluster > Collections\n2. Select Database: edureach_db, Collection: knowledge_docs\n3. Click 'Indexes' tab\n4. Click 'Create Index'\n5. Select 'Vector Search'\n6. Set Index Name: edureach_vector_index\n7. Set Vector Field Path: embedding\n8. Set Dimensions: 768 (for embedding-001 model)\n9. Set Similarity: cosine\n10. Click 'Create Index'\n\nAlternatively, use MongoDB Atlas CLI or API to create the index.\n\nNote: The knowledge_docs collection will be auto-created with documents when the backend initializes."
+}
