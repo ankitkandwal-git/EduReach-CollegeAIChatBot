@@ -59,35 +59,18 @@ const HomePage = () => {
   };
 
   return (
-    // Prevent global page scrolling behavior
     <div className="w-screen h-screen bg-[#121318] text-white relative overflow-hidden font-sans flex flex-col">
-      
-      {/* Premium Ambient Background Blobs */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/10 blur-[150px] pointer-events-none" />
 
-      {/* Top Fixed Navbar */}
       <Navbar />
 
-      {/* Main Container below Navbar (pt-16 compensates for navbar height) */}
       <div className="relative flex flex-1 w-full h-full pt-16 overflow-hidden">
-        
-        {/* Left Fixed Sidebar Component */}
         <Sidebar />
 
-        {/* DASHBOARD WORKSPACE PANEL: 
-          - pl-64 pushes this container precisely past your 64-width sidebar.
-          - pr-6 sets a perfect margin right before the screen edge.
-          - gap-6 spaces out the Chat section and the Widget column cleanly.
-        */}
+
         <div className="flex flex-1 w-full h-full min-w-0 gap-6 py-6 pl-64 pr-6 overflow-hidden">
-          
-          {/* ========================================================
-              CENTER COLUMN: UNIFIED COUNSELOR HERO & CHAT CONTAINER
-             ======================================================== */}
           <div className="flex-1 flex flex-col bg-[#16171D]/80 backdrop-blur-md border border-white/[0.06] rounded-2xl p-6 shadow-2xl overflow-hidden min-w-0 h-full">
-            
-            {/* Unified Header inside the main panel container */}
             <div className="mb-6 shrink-0">
               <h1 className="text-2xl font-extrabold tracking-tight text-transparent md:text-3xl bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text">
                 Your AI College Counselor is Online
@@ -97,7 +80,6 @@ const HomePage = () => {
               </p>
             </div>
 
-            {/* Input Query Bar */}
             <div className="relative mb-4 group shrink-0">
               <input
                 type="text"
@@ -117,7 +99,6 @@ const HomePage = () => {
               </button>
             </div>
 
-            {/* Quick Action Pills */}
             <div className="flex flex-wrap gap-2 mb-6 shrink-0">
               {quickPills.map((pill) => (
                 <button
@@ -135,7 +116,7 @@ const HomePage = () => {
               <div className="mb-4 text-sm text-red-400">{error}</div>
             )}
 
-            {/* Scrollable Conversation Workspace */}
+
             <div className="flex-1 space-y-4 overflow-y-auto pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {messages.map((message, index) => (
                 <div key={`${message.role}-${index}`} className={message.role === 'user' ? 'flex justify-end' : 'flex items-start gap-3'}>
@@ -168,12 +149,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* ========================================================
-              RIGHT COLUMN: SMART WIDGETS & INSIGHT PANELS
-             ======================================================== */}
           <div className="hidden lg:flex w-[320px] xl:w-[350px] shrink-0 flex-col gap-4 overflow-y-auto h-full pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            
-            {/* Widget 1: AI Voice Counselor Card */}
             <div className="bg-[#1C1D24] border border-white/[0.06] rounded-2xl p-4 flex flex-col items-center relative overflow-hidden group shadow-lg shrink-0">
               <div className="flex items-center justify-between w-full mb-3">
                 <span className="text-xs font-semibold tracking-wider uppercase text-slate-400">AI Voice Assistant</span>
@@ -196,7 +172,6 @@ const HomePage = () => {
               </button>
             </div>
 
-            {/* Widget 2: Placement Stats Card */}
             <div className="bg-[#1C1D24] border border-white/[0.06] rounded-2xl p-4 shadow-lg shrink-0">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-xs font-bold tracking-wide text-slate-300">Placement Analytics</h3>
@@ -222,7 +197,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Widget 3: Personalized Recommendations */}
+
             <div className="bg-[#1C1D24] border border-white/[0.06] rounded-2xl p-4 shadow-lg space-y-3 shrink-0">
               <h3 className="text-xs font-bold tracking-wide text-slate-300">Personalized for You</h3>
               <div className="space-y-2">

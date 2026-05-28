@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
     return (
-        // Fixed positioning locking it directly under the navbar (top-16) with a fixed width of 64 (16rem)
         <div className="fixed top-16 bottom-0 left-0 flex flex-col w-64 bg-[#121318] text-white border-r border-white/5 shadow-2xl z-40">
-            {/* REMOVED DUPLICATE LOGO CONTAINER TO PREVENT OVERLAPS */}
 
             <nav className="flex-1 px-4 mt-6 space-y-2">
                 <Link to="/dashboard" className="flex items-center px-4 py-3 transition-all duration-200 rounded-xl hover:bg-white/10 group">

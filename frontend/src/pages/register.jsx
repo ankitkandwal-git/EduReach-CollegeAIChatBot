@@ -18,9 +18,7 @@ const Register = () => {
 
     useEffect(() => {
         setVisible(true);
-        // Add a class to the body for background styling, similar to login.jsx
         document.body.classList.add('auth-bg');
-        // Cleanup function to remove the class when the component unmounts
         return () => document.body.classList.remove('auth-bg');
     }, []);
 
@@ -67,7 +65,6 @@ const Register = () => {
 
     return (
         <div className="fixed inset-0 flex flex-col items-center justify-center w-screen min-h-screen px-4 py-12 overflow-x-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
-            {/* Decorative Background Elements (similar to login.jsx) */}
             <div className="absolute top-0 left-0 w-64 h-64 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full opacity-10 blur-3xl"></div>
             <div className="absolute bottom-0 right-0 bg-blue-400 rounded-full w-96 h-96 opacity-20 translate-x-1/3 translate-y-1/3 blur-3xl"></div>
 

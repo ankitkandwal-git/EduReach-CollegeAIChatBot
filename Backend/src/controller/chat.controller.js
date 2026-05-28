@@ -1,6 +1,5 @@
 import { getRAGResponse } from '../services/rag.services.js';
 
-// POST /api/chat/message
 export const sendMessage = async (req, res, next) => {
   try {
     const { message } = req.body;

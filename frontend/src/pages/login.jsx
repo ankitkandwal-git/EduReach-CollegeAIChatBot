@@ -19,14 +19,13 @@ const Login = () => {
         e.preventDefault();
         setError('');
         try{
-            // Use VITE_API_URL for production, or relative path for development proxy
             const apiUrl = import.meta.env.VITE_API_URL || '';
             const response = await axios.post(`${apiUrl}/auth/login`, formData);
             
             if(response.data.token){
                 localStorage.setItem('token', response.data.token);
                 alert('Login successful!');
-                navigate('/dashboard'); // Use useNavigate for better React Router integration
+                navigate('/dashboard');
             } else {
                 setError('Login failed: No token received.');
             }
@@ -44,7 +43,6 @@ const Login = () => {
 
     return (
         <div className="fixed inset-0 flex flex-col items-center justify-center w-screen min-h-screen px-4 py-12 overflow-x-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
-            {/* Decorative Background Elements */}
             <div className="absolute top-0 left-0 w-64 h-64 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full opacity-10 blur-3xl"></div>
             <div className="absolute bottom-0 right-0 bg-blue-400 rounded-full w-96 h-96 opacity-20 translate-x-1/3 translate-y-1/3 blur-3xl"></div>
 

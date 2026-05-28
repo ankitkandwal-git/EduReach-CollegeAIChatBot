@@ -7,7 +7,7 @@ import chatRoutes from './src/routes/chat.routes.js';
 dotenv.config();
 connectDB();
 const app = express();
-const port = process.env.PORT || 5000; // Keep this line
+const port = process.env.PORT || 5000; 
 app.use(express.json());
 
 app.use(cors({
@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
     res.send('API is running');
 })
 app.use('/chat', chatRoutes);
-// Error handler (development-friendly)
 app.use((err, req, res, next) => {
     console.error('Unhandled error:', err && err.stack ? err.stack : err);
     res.status(err?.status || 500).json({
